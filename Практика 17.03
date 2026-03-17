@@ -1,1 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Cat cat1 = new Cat(21);
+
+        }
+    }
+
+    public abstract class Animal
+    {
+        private int _number;
+        public Animal(int number)
+        {
+            _number = number;
+        }
+
+        public void Method1()
+        {
+            Console.WriteLine("Animal Method1");
+        }
+        public virtual void Method2()
+        {
+            Console.WriteLine("Animal Method2");
+        }
+        public abstract void Method3();
+
+    }
+    public class Cat: Animal
+    {
+        public Cat(int number): base(number) { }
+        public new void Method1()
+        {
+            Console.WriteLine("Animal Method1");
+        }
+        public override void Method2()
+        {
+            Console.WriteLine("Animal Method2");
+        }
+        public override void Method3()
+        {
+            Console.WriteLine("Animal Method3");
+        }
+    }
+    public class Dog : Animal
+    {
+        public Dog(int number) : base(number) { }
+        public override void Method3()
+        {
+            Console.WriteLine("Animal Method3");
+        }
+    }
+
+}
 
