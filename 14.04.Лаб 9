@@ -1,0 +1,57 @@
+namespace Lab9.White
+{
+    public abstract class White : Object
+    {
+        protected string _input;
+        public string Input => _input;
+        protected White(string input) 
+        {
+            _input = input;
+        }
+        public abstract void Review(); 
+        public virtual void ChangeText(string text)
+        {
+            _input = text;
+            Review();
+        }
+    }
+}
+namespace Lab9.White
+{
+    public class Task1 : White
+    {
+        private int _output;
+        public int Output => _output;
+        public Task1(string input): base(input)
+        {
+            _output = default(int);
+        }
+        public override void Review()
+        {
+            int count = 0;
+            count++;
+            _output = count;
+        }
+        public override string ToString()
+        {
+            return $"{_input}{Environment.NewLine}{_output}";
+        }
+
+    }
+}
+namespace Lab9
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            Task1 t1 = new Task1("Hello");
+            Console.WriteLine(t1.Output);
+            t1.Review();
+            Console.WriteLine(t1.Output);
+
+            string newtext = t1.ToString();
+            Console.WriteLine(newtext);
+        }
+    }
+}
