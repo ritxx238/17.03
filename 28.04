@@ -1,0 +1,24 @@
+
+            string[] words = new string[] { "jast", "another", "exaple" };
+            File.WriteAllLines(filePath, words);
+
+
+            File.AppendAllText(filePath, "Hi!");
+            File.AppendAllText(filePath, "Bye!");
+            File.AppendAllLines(filePath, words);
+
+            string content1 = File.ReadAllText(filePath);
+            Console.WriteLine(content1);
+            string[] content2 = File.ReadAllLines(filePath);
+            foreach(string line in content2)
+            {
+                Console.WriteLine(line);
+            }
+            File.Create("testreative.txt").Close();
+
+            File.Delete("testreative.txt");
+            File.Delete(filePath); 
+
+        }
+    }
+}
